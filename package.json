@@ -1,0 +1,74 @@
+{
+  "name": "dsh-starter-kit",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "description": "One-click starter kit for the agent runtime: plugin market + enhanced sidebar + global prompt, pre-integrated for first-time users.",
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "starter-kit",
+    "plugin-market",
+    "sidebar",
+    "global-prompt",
+    "system-prompt",
+    "all-in-one"
+  ],
+  "license": "MIT",
+  "author": "SOCOOL666",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SOCOOL666/dsh-starter-kit.git"
+  },
+  "homepage": "https://github.com/SOCOOL666/dsh-starter-kit#readme",
+  "bugs": {
+    "url": "https://github.com/SOCOOL666/dsh-starter-kit/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/en.json",
+    "locale/zh.json",
+    "icon.svg",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    ".gitignore"
+  ],
+  "dependencies": {
+    "dshmarket": "1.73.20",
+    "dsh-better-sidebar": "0.32.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    },
+    "engines": {
+      "dsh": ">=0.2.2-rc.2"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "node --check index.js && node --check client.js",
+    "pack:check": "npm pack --dry-run"
+  }
+}

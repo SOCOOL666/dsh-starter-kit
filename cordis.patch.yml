@@ -1,0 +1,14 @@
+# dsh-starter-kit bundle patch
+#
+# Only this kit's own global-prompt feature is mounted here. The two
+# third-party plugins (dshmarket, dsh-better-sidebar) are self-mounting
+# bundles: each ships its own `dsh.bundle.patch`. Declaring them as
+# dependencies makes DSH mount them through their own patches, so we must
+# NOT insert them again here (that would double-mount the sidebar/market and
+# register duplicate routes such as /sidebar/api).
+- insert:
+    - id: starter-global-prompt
+      name: 'dsh-starter-kit'
+      config:
+        prompt: ''
+        enabled: true
